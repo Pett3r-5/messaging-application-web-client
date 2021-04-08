@@ -2,6 +2,7 @@
   "name": "chat-application-client",
   "version": "0.1.0",
   "private": true,
+  "main": "./src/main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -15,6 +16,7 @@
     "concurrently": "^5.3.0",
     "cross-env": "^7.0.3",
     "electron": "^11.1.1",
+    "electron-packager": "^15.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -28,8 +30,8 @@
     "start:web": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy:windows":"npx electron-packager ./ chat-app --platform=win32 --arch=x64",
-    "deploy:macOS":"npx electron-packager ./ chat-app --platform=win32 --arch=x64",
+    "deploy:windows": "npx electron-packager ./ chat-app --platform=win32 --arch=x64",
+    "deploy:macOS": "npx electron-packager ./ chat-app --platform=win32 --arch=x64",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -50,7 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "electron-packager": "^15.2.0"
-  }
+  "devDependencies": {}
 }
