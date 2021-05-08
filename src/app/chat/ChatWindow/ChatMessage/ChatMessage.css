@@ -1,0 +1,52 @@
+.own-message {
+    min-height: 10%;
+    width: 80%;
+    word-break: break-all;
+    white-space: normal;
+    margin: 10% 0%;
+    display: flex;
+    align-self: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.others-message {
+    height: 10%;
+    width: 80%;
+    word-break: break-all;
+    white-space: normal;
+    margin: 25% 0%;
+    display: flex;
+    align-self: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.own-message-content {
+    color:white;
+    padding: 0;
+    font-size: 16px;
+    word-break: break-all;
+    background-color: rgb(88, 58, 69);
+    width:90%;
+    padding:10px;
+    border-radius: 0 5px 5px 0;
+}
+
+.others-message-content {
+    color:white;
+    padding: 0;
+    font-size: 16px;
+    word-break: break-all;
+    background-color: rgb(88, 58, 69);
+    width:90%;
+    padding:10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.message-detail {
+    color:white;
+    padding: 7px 10px 7px 10px;
+    font-size: 13px;
+}
+

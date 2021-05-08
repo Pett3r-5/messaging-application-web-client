@@ -1,0 +1,32 @@
+.home-container {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    margin: 0px; 
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .creation-button {
+    margin: 20px;
+    background-color:rgb(235, 249, 252);
+    border-radius: 10px;
+    border: 0px;
+    padding: 20px;
+    box-shadow: 1px 1px 3px #111111 !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .creation-button:hover {
+    background-color:rgb(110, 139, 192);
+    cursor: pointer;
+  }
+  
+  
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
