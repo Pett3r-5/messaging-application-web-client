@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/chat-application-web-client/static/css/main.0fc26e15.chunk.css",
+    "main.js": "/chat-application-web-client/static/js/main.eb7b8eb5.chunk.js",
+    "main.js.map": "/chat-application-web-client/static/js/main.eb7b8eb5.chunk.js.map",
+    "runtime-main.js": "/chat-application-web-client/static/js/runtime-main.cda83888.js",
+    "runtime-main.js.map": "/chat-application-web-client/static/js/runtime-main.cda83888.js.map",
+    "static/css/2.27175f2b.chunk.css": "/chat-application-web-client/static/css/2.27175f2b.chunk.css",
+    "static/js/2.1c67fc32.chunk.js": "/chat-application-web-client/static/js/2.1c67fc32.chunk.js",
+    "static/js/2.1c67fc32.chunk.js.map": "/chat-application-web-client/static/js/2.1c67fc32.chunk.js.map",
+    "index.html": "/chat-application-web-client/index.html",
+    "static/css/2.27175f2b.chunk.css.map": "/chat-application-web-client/static/css/2.27175f2b.chunk.css.map",
+    "static/css/main.0fc26e15.chunk.css.map": "/chat-application-web-client/static/css/main.0fc26e15.chunk.css.map",
+    "static/js/2.1c67fc32.chunk.js.LICENSE.txt": "/chat-application-web-client/static/js/2.1c67fc32.chunk.js.LICENSE.txt",
+    "static/media/PinClipart.com_zip-clipart_2015963.a632ad1a.png": "/chat-application-web-client/static/media/PinClipart.com_zip-clipart_2015963.a632ad1a.png",
+    "static/media/check_accept_done_tick_icon_143633.8a0223a2.svg": "/chat-application-web-client/static/media/check_accept_done_tick_icon_143633.8a0223a2.svg",
+    "static/media/close.069e609e.svg": "/chat-application-web-client/static/media/close.069e609e.svg",
+    "static/media/minimize.0ed66843.svg": "/chat-application-web-client/static/media/minimize.0ed66843.svg",
+    "static/media/speech-bubble-svgrepo-com.1f926b35.svg": "/chat-application-web-client/static/media/speech-bubble-svgrepo-com.1f926b35.svg",
+    "static/media/tool_icon_151041.19afc5dd.svg": "/chat-application-web-client/static/media/tool_icon_151041.19afc5dd.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cda83888.js",
+    "static/css/2.27175f2b.chunk.css",
+    "static/js/2.1c67fc32.chunk.js",
+    "static/css/main.0fc26e15.chunk.css",
+    "static/js/main.eb7b8eb5.chunk.js"
+  ]
+}
