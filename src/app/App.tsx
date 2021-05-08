@@ -53,10 +53,10 @@ function App() {
 
 
     async function init() {
-      let id = sessionStorage.getItem("chat-app:clientId")
+      let id = localStorage.getItem("chat-app:clientId")
       if(!id) {
         id = String(new ObjectID())
-        sessionStorage.setItem("chat-app:clientId", id)
+        localStorage.setItem("chat-app:clientId", id)
       }
 
       setUser({ ...user, clientId: id })
