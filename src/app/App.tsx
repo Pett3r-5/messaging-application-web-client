@@ -12,6 +12,7 @@ import ChatListContainer from './ChatsListContainer/ChatsListContainer';
 import ChatOptions from './ChatOptions/ChatOptions';
 import ChatCreationForm from '../models/ChatCreationForm';
 import { baseUrls, defaultHeader } from '../commons/http-constants';
+import ObjectID from "bson-objectid"
 
 enum ChatState {
   OPTIONS,
@@ -31,7 +32,6 @@ interface UserState {
 
 let socket = io(baseUrls.applicationManagerUrl);
 socket.on('connect', function () {
-  console.log("Connected here")
 });
 
 
@@ -53,11 +53,10 @@ function App() {
 
 
     async function init() {
-      let id = ""
-      try {
-        id = "hash3"
-      } catch (error) {
-        console.log(error)
+      let id = sessionStorage.getItem("chat-app:clientId")
+      if(!id) {
+        id = String(new ObjectID())
+        sessionStorage.setItem("chat-app:clientId", id)
       }
 
       setUser({ ...user, clientId: id })
@@ -69,14 +68,10 @@ function App() {
         setOpenedConversation(res)
         setDisplay({ chatState: ChatState.OPENED })
 
-        console.log("conversation-joined")
         console.log(JSON.stringify(res, undefined, 4))
       })
 
       socket.on("message-posted", (res: any) => {
-        console.log("message-posted")
-        console.log(res)
-
         setOpenedConversation(res)
       })
 
@@ -109,8 +104,6 @@ function App() {
       }]
     }
 
-    console.log(JSON.stringify(conv, undefined, 4));
-
     socket.emit("create-conversation", conv)
   }
 
@@ -119,16 +112,10 @@ function App() {
       name: user.name,
       clientId: user.clientId
     }
-
-    console.log("post-message posting conversation");
-    console.log(JSON.stringify(message, undefined, 4));
     socket.emit("post-message", { conversation: openedConversation, message: message })
   }
 
   const joinConversationByLink = (conversationLink: string) => {
-
-    console.log("join-conversation");
-    console.log(JSON.stringify(conversationLink, undefined, 4));
     socket.emit("join-conversation", {
       conversationLink: conversationLink, user: {
         clientId: user.clientId,
@@ -138,16 +125,11 @@ function App() {
   }
 
   const openConversation = (conversationLink: string) => {
-
-    console.log("get-conversation");
-    console.log(JSON.stringify(conversationLink, undefined, 4));
     socket.emit("get-conversation", { conversationLink: conversationLink })
 
   }
 
   const getConversationList = async (id: string) => {
-    console.log("getConversationList")
-    console.log(id)
     let conversationList
     let userUpserted
     try {
@@ -169,8 +151,6 @@ function App() {
     } catch (error) {
       console.log(error)
     }
-    console.log("userUpserted")
-    console.log(userUpserted)
     if (!!conversationList) {
       setConversationList([...conversationList])
     } else {
@@ -185,8 +165,6 @@ function App() {
 
 
   const editUsername = async (user: User) => {
-    console.log("edit-usernmae")
-    console.log(user)
     let data: User | undefined = undefined
     try {
       const dataUnparsed = await fetch(`${baseUrls.applicationServiceUrl}/user/name/${user.name}`,
