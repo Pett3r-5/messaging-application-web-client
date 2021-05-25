@@ -10,6 +10,13 @@
     box-shadow: 1px 1px 5px #0f0f0f !important;
 }
 
+@media only screen and (max-width: 600px) {
+    .chat-window {
+        width: 96%;
+        margin: 2%;
+    }    
+}
+
 .messages-container {
     overflow: auto; 
     max-height:71%;

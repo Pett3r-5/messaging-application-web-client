@@ -5,3 +5,10 @@
     word-break: break-all;
     white-space: normal;
 }
+
+@media only screen and (max-width: 600px) {
+    .chat-list-container {
+        width: 90%;
+        margin: 5% auto;
+    }
+  }

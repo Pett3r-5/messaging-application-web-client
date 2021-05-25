@@ -9,6 +9,13 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+@media only screen and (max-width: 600px) {
+  .options-modal {
+      width: 80%;
+      margin: 3% auto;
+  }    
+}
+
 
 .form-section {
     padding: 10px 20px;
