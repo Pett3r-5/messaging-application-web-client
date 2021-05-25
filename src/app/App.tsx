@@ -60,29 +60,49 @@ function App() {
       }
 
       setUser({ ...user, clientId: id })
-
-
       getConversationList(id)
-      socket.on("conversation-joined", (res: Conversation) => {
 
-        setOpenedConversation(res)
-        setDisplay({ chatState: ChatState.OPENED })
-
-        console.log(JSON.stringify(res, undefined, 4))
+      socket.emit("user-id", id)
+      socket.on("conversation-joined", (res:{conversation: Conversation, isOpenedConversation: boolean}) => {
+        console.log("conversation-joined");
+        console.log(res);
+        
+        if(res.isOpenedConversation){
+          setOpenedConversation({...res.conversation})
+          setDisplay({ chatState: ChatState.OPENED })
+        }
       })
 
-      socket.on("message-posted", (res: any) => {
-        setOpenedConversation(res)
-      })
 
     }
 
     init()
     return () => {
       socket.off("conversation-joined");
-      socket.off("message-posted");
     };
   }, [])
+
+  useEffect(()=>{
+    socket.on("message-posted", (res: Conversation) => {
+      if(res.conversationLink === openedConversation.conversationLink){
+        setOpenedConversation(res)
+      } else {
+        let convsWithNewMessage = conversationList.map(el=>{
+          if(res.conversationLink === el.conversationLink) {
+            el.hasNewMessage = true
+          }
+          return el
+        })
+        console.log("convsWithNewMessage")
+        console.log(convsWithNewMessage)
+        setConversationList(convsWithNewMessage)
+      }
+    })
+
+    return () => {
+      socket.off("message-posted");
+    }
+  }, [openedConversation])
 
 
 
@@ -103,7 +123,6 @@ function App() {
         name: user.name
       }]
     }
-
     socket.emit("create-conversation", conv)
   }
 
@@ -115,12 +134,14 @@ function App() {
     socket.emit("post-message", { conversation: openedConversation, message: message })
   }
 
-  const joinConversationByLink = (conversationLink: string) => {
+  const joinConversationByLink = (conversationLink: string, isOpenedConversation: boolean) => {
     socket.emit("join-conversation", {
-      conversationLink: conversationLink, user: {
+      conversationLink: conversationLink, 
+      user: {
         clientId: user.clientId,
         name: user.name
-      }
+      },
+      isOpenedConversation: isOpenedConversation
     })
   }
 
@@ -147,12 +168,17 @@ function App() {
       })
 
       userUpserted = await userReq.json()
-
     } catch (error) {
       console.log(error)
     }
+
     if (!!conversationList) {
       setConversationList([...conversationList])
+      conversationList.map((el:Conversation)=>{
+        joinConversationByLink(el.conversationLink, false)
+        return el
+      })
+      
     } else {
       setConversationList([])
     }
