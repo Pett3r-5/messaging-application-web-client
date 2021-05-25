@@ -58,7 +58,6 @@ function SearchBySubjectTab({ joinConversationByLink }: SearchBySubjectTabProps)
         const unparsedConvs = await fetch(`${baseUrls.applicationServiceUrl}/conversation/subject/${searchInput}`,
             { method: 'GET', headers: defaultHeader })
         const conversations: Array<Conversation> = await unparsedConvs.json()
-        console.log(conversations);
 
         setConversationsSearched(conversations)
     }

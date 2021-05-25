@@ -63,10 +63,7 @@ function App() {
       getConversationList(id)
 
       socket.emit("user-id", id)
-      socket.on("conversation-joined", (res:{conversation: Conversation, isOpenedConversation: boolean}) => {
-        console.log("conversation-joined");
-        console.log(res);
-        
+      socket.on("conversation-joined", (res:{conversation: Conversation, isOpenedConversation: boolean}) => {        
         if(res.isOpenedConversation){
           setOpenedConversation({...res.conversation})
           setDisplay({ chatState: ChatState.OPENED })
@@ -93,8 +90,7 @@ function App() {
           }
           return el
         })
-        console.log("convsWithNewMessage")
-        console.log(convsWithNewMessage)
+        
         setConversationList(convsWithNewMessage)
       }
     })

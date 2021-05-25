@@ -16,7 +16,6 @@ function UserName({ user, editUsername }: UserNameProps) {
 
     const editName = (event:SyntheticEvent)=> {
         event.preventDefault()
-        console.log(isInputEnabled)
         setIsInputEnabled(true)
     }
 
