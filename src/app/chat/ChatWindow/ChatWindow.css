@@ -10,13 +10,6 @@
     box-shadow: 1px 1px 5px #0f0f0f !important;
 }
 
-@media only screen and (max-width: 600px) {
-    .chat-window {
-        width: 96%;
-        margin: 2%;
-    }    
-}
-
 .messages-container {
     overflow: auto; 
     max-height:71%;
@@ -30,4 +23,20 @@
     -ms-transition: 1s;
     -o-transition: 1s;
     transition: 1s;
+}
+
+@media only screen and (max-width: 600px) {
+    .chat-window {
+        width: 96%;
+        margin: 2%;
+        height: 650px;
+    }
+    
+    .messages-container {
+        height: 500px;
+    }
+
+    .messages-container-smaller {
+        height: 450px;
+    }
 }
