@@ -29,14 +29,14 @@
     .chat-window {
         width: 96%;
         margin: 2%;
-        height: 650px;
+        height: 700px;
     }
     
     .messages-container {
-        height: 500px;
+        height: 550px;
     }
 
     .messages-container-smaller {
-        height: 450px;
+        height: 500px;
     }
 }

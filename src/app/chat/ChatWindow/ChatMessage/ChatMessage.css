@@ -21,6 +21,18 @@
     flex-direction: column;
 }
 
+@media only screen and (max-width: 600px) {
+    .own-message {
+        height: 100px;
+        border: 30px 0px;
+    }
+
+    .others-message {
+        height: 100px;
+        border: 30px 0px;
+    }
+}
+
 .own-message-content {
     color:white;
     padding: 0;
