@@ -107,6 +107,10 @@ function App() {
     setDisplay({ chatState: ChatState.OPTIONS })
   }
 
+  const backToHomeScreen = () => {
+    setDisplay({ chatState: ChatState.CLOSED })
+  }
+
   const createConversation = (chatCreationForm: ChatCreationForm) => {
     const conv = {
       conversationLink: "",
@@ -241,7 +245,7 @@ function App() {
   return (
     <div className="app-container">
       <div className="app-body">
-        {display.chatState === ChatState.OPTIONS ? <ChatOptions createConversation={createConversation} /> : <></>}
+        {display.chatState === ChatState.OPTIONS ? <ChatOptions createConversation={createConversation} backToHomeScreen={backToHomeScreen} /> : <></>}
 
         {display.chatState === ChatState.OPENED ?
           <Chat openedConversation={openedConversation} postMessage={postMessage} userId={user.clientId} minimizeConversation={minimizeConversation} /> :
