@@ -52,8 +52,8 @@ function ChatOptions({ createConversation, backToHomeScreen }: ChatOptions) {
                     <input id="subject" type="text" name="subject" onChange={handleChange} />
                 </div>
                 <div className="form-section">
-                    <div className="form-row" style={{justifyContent:"space-between"}}>
-                        <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div className="form-row" >
+                        <div id="private-option-button-container">
                             <label htmlFor="isPublic">{formData.isPublic === "true" ? "É público " : "É privado "}</label>
                             <label className="switch">
                                 <input type="checkbox" checked={formData.isPublic === "false"} onChange={handleIsPublicSwitch} />
@@ -61,7 +61,7 @@ function ChatOptions({ createConversation, backToHomeScreen }: ChatOptions) {
                             </label>
                         </div>
 
-                        <div style={{ display: "flex", flexDirection: "column", maxWidth: "50%" }}>
+                        <div id="disposable-option-button-container">
                             <label htmlFor="isPublic">{formData.persist === "false" ? "Descartada após terminada" : "Não descartada"}</label>
                             <label className="switch">
                                 <input type="checkbox" checked={formData.persist === "false"} onChange={handlePersistSwitch} />
