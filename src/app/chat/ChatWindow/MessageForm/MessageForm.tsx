@@ -1,17 +1,19 @@
-import React, { SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useContext, useState } from 'react';
 import Message from '../../../../models/Message';
 import './MessageForm.css';
 import pressButton from '../../../assets/play.png'
-
-interface MessageFormProps {
-    postMessage: Function
-}
+import { UserContext, OpenedConversationContext } from '../../../App';
+import Connection from '../../../../commons/Connection';
 
 
-function MessageForm({ postMessage }: MessageFormProps) {
+
+function MessageForm() {
     const [message, setMessage] = useState<Message>({
         content: ""
     })
+
+    const { user, setUser } = useContext(UserContext)
+    const { openedConversation, setOpenedConversation } = useContext(OpenedConversationContext)
 
     const handleChange = (event: any) => {
         setMessage({ ...message, [event.currentTarget.name]: event.currentTarget.value })
@@ -19,8 +21,16 @@ function MessageForm({ postMessage }: MessageFormProps) {
 
     const submitRegistration = (event: SyntheticEvent) => {
         event.preventDefault()
-        postMessage(message)
-        setMessage({ content: "" })
+
+        if(user) {
+            message.sentBy = {
+                name: user.name,
+                clientId: user.clientId
+            }
+
+            Connection.getSocket().emit("post-message", { conversation: openedConversation, message: message })
+            setMessage({ content: "" })
+        }
     }
 
     const submitOnEnter = (event:any)=> {
