@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/chat-application-web-client/static/css/main.62287e54.chunk.css",
-    "main.js": "/chat-application-web-client/static/js/main.8439a80a.chunk.js",
-    "main.js.map": "/chat-application-web-client/static/js/main.8439a80a.chunk.js.map",
+    "main.js": "/chat-application-web-client/static/js/main.5a487c14.chunk.js",
+    "main.js.map": "/chat-application-web-client/static/js/main.5a487c14.chunk.js.map",
     "runtime-main.js": "/chat-application-web-client/static/js/runtime-main.cda83888.js",
     "runtime-main.js.map": "/chat-application-web-client/static/js/runtime-main.cda83888.js.map",
     "static/css/2.27175f2b.chunk.css": "/chat-application-web-client/static/css/2.27175f2b.chunk.css",
@@ -13,10 +13,10 @@
     "static/css/main.62287e54.chunk.css.map": "/chat-application-web-client/static/css/main.62287e54.chunk.css.map",
     "static/js/2.dc1fd975.chunk.js.LICENSE.txt": "/chat-application-web-client/static/js/2.dc1fd975.chunk.js.LICENSE.txt",
     "static/media/PinClipart.com_zip-clipart_2015963.a632ad1a.png": "/chat-application-web-client/static/media/PinClipart.com_zip-clipart_2015963.a632ad1a.png",
+    "static/media/bubble-logo5.8c5e1b4c.png": "/chat-application-web-client/static/media/bubble-logo5.8c5e1b4c.png",
     "static/media/check_accept_done_tick_icon_143633.3af8eb3d.svg": "/chat-application-web-client/static/media/check_accept_done_tick_icon_143633.3af8eb3d.svg",
     "static/media/close.069e609e.svg": "/chat-application-web-client/static/media/close.069e609e.svg",
     "static/media/minimize.0ed66843.svg": "/chat-application-web-client/static/media/minimize.0ed66843.svg",
-    "static/media/speech-bubble-svgrepo-com.1f926b35.svg": "/chat-application-web-client/static/media/speech-bubble-svgrepo-com.1f926b35.svg",
     "static/media/tool_icon_151041.5904ccca.svg": "/chat-application-web-client/static/media/tool_icon_151041.5904ccca.svg"
   },
   "entrypoints": [
@@ -24,6 +24,6 @@
     "static/css/2.27175f2b.chunk.css",
     "static/js/2.dc1fd975.chunk.js",
     "static/css/main.62287e54.chunk.css",
-    "static/js/main.8439a80a.chunk.js"
+    "static/js/main.5a487c14.chunk.js"
   ]
 }
