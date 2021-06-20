@@ -50,8 +50,6 @@ function App() {
   const [conversationList, setConversationList] = useState<Conversation[]>([])
 
   useEffect(() => {
-
-
     async function init() {
       let id = localStorage.getItem("chat-app:clientId")
       if(!id) {
@@ -63,21 +61,24 @@ function App() {
       getConversationList(id)
 
       socket.emit("user-id", id)
-      socket.on("conversation-joined", (res:{conversation: Conversation, isOpenedConversation: boolean}) => {        
-        if(res.isOpenedConversation){
-          setOpenedConversation({...res.conversation})
-          setDisplay({ chatState: ChatState.OPENED })
-        }
-      })
-
-
     }
 
     init()
+  }, [])
+
+  useEffect(()=>{
+    socket.on("conversation-joined", (res:{conversation: Conversation, isOpenedConversation: boolean, requestOwner: string}) => {
+      
+      if(res.isOpenedConversation && res.requestOwner === user.clientId){
+        setOpenedConversation({...res.conversation})
+        setDisplay({ chatState: ChatState.OPENED })
+      }
+    })
+    
     return () => {
       socket.off("conversation-joined");
     };
-  }, [])
+  }, [user])
 
   useEffect(()=>{
     socket.on("message-posted", (res: Conversation) => {
@@ -98,7 +99,7 @@ function App() {
     return () => {
       socket.off("message-posted");
     }
-  }, [openedConversation])
+  }, [openedConversation, conversationList])
 
 
 
@@ -146,7 +147,7 @@ function App() {
   }
 
   const openConversation = (conversationLink: string) => {
-    socket.emit("get-conversation", { conversationLink: conversationLink })
+    socket.emit("get-conversation", { conversationLink: conversationLink, clientId: user.clientId })
 
   }
 

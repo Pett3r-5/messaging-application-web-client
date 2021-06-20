@@ -24,10 +24,10 @@
         "outputCapture": "std"
       },
       {
-        "type": "pwa-chrome",
+        "type": "chrome",
         "request": "launch",
-        "name": "Launch Chrome against localhost",
-        "url": "http://localhost:8080",
+        "name": "Launch chrome against localhost",
+        "url": "http://localhost:3001",
         "webRoot": "${workspaceFolder}"
       }
     ]
