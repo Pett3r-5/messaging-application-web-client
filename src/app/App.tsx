@@ -13,7 +13,9 @@ import ChatOptions from './ChatOptions/ChatOptions';
 import { baseUrls, defaultHeader } from '../commons/http-constants';
 import Connection from '../commons/Connection';
 import { appReducer } from '../commons/reducers';
+require('dotenv').config()
 
+console.log(process.env.REACT_APP_APPLICATION_SERVICE_URL)
 import ObjectID from "bson-objectid"
 import { UserState, Display, ChatState } from './AppState'
 
